@@ -1,0 +1,57 @@
+<div class="row">
+   <h3 class=" col-xs-12"><span *ngIf="!beacon.id">New</span> Beacon ({{beacon.userId}}) {{beacon.name}}
+      <small class="toolbar pull-right">
+         <!--button (click)="edit = !edit;" class="toolbar-item">{{edit?"Cancel":"Edit"}}</button-->
+      </small>
+   </h3>
+</div>
+<div [hidden]="!edit">
+   <form (ngSubmit)="onSubmit()" [formGroup]="form" class="row">
+      <div class="form-group" class="col-xs-12 ">
+         <label for="beaconId1">beaconId1</label>
+         <input type="text" class="form-control" id="beaconId1" name="beaconId1" placeholder="BeaconId1"
+                formControlName="beaconId1" >
+         <div [hidden]="form.controls.beaconId1.valid || form.controls.beaconId1.pristine" class="alert alert-danger">
+            beaconId1 is required
+         </div>
+      </div>
+      <div class="form-group" class="col-xs-12 ">
+         <label for="beaconId2">beaconId2</label>
+         <input type="text" class="form-control" id="beaconId2" name="beaconId2" placeholder="BeaconId2"
+                formControlName="beaconId2" >
+         <div [hidden]="form.controls.beaconId2.valid || form.controls.beaconId2.pristine" class="alert alert-danger">
+            beaconId2 is required
+         </div>
+      </div>
+      <div class="form-group" class="col-xs-12 ">
+         <label for="beaconId3">beaconId3</label>
+         <input type="text" class="form-control" id="beaconId3" name="beaconId3" placeholder="BeaconId3"
+                formControlName="beaconId3" >
+         <div [hidden]="form.controls.beaconId3.valid || form.controls.beaconId3.pristine" class="alert alert-danger">
+            beaconId3 is required
+         </div>
+      </div>
+
+      <div class="form-group" class="col-xs-12 ">
+         <label for="use">Use</label>
+         <select class="form-control" id="use" name="use" placeholder="Use" formControlName="use" >
+            <option value="tag">tag</option>
+            <option value="check">check</option>
+         </select>
+         <div [hidden]="form.controls.use.valid || form.controls.use.pristine" class="alert alert-danger">
+            Name is required
+         </div>
+      </div>
+      <div class="form-group" class="col-xs-12 ">
+         <button class="btn btn-default" [disabled]="!form.valid">Submit</button>
+      </div>
+   </form>
+
+</div>
+<div [hidden]="edit" class="row">
+   <div class="col-xs-12 ">
+      Some beacon representation
+   </div>
+</div>
+
+<messages [messages]="messages" ></messages>

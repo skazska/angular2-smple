@@ -1,0 +1,30 @@
+<ul class="sidebar-nav">
+   <li class="sidebar-brand">
+      <a href="#">
+         Go Profit web-admin
+      </a>
+   </li>
+   <li *ngIf="display('/Dashboard')" routerLinkActive="active" >
+      <a [routerLink]="['/Dashboard']"   >Dashboard</a>
+   </li>
+   <li *ngIf="display('/Clients')" routerLinkActive="active" >
+      <a [routerLink]="['/Clients']"  >Clients</a>
+      <ul class="sidebar-nav-1">
+         <li>
+            <a [routerLink]="['/Clients/new']"  >New</a>
+         </li>
+      </ul>
+   </li >
+   <li *ngIf="display('/TC')" routerLinkActive="active" >
+      <a [routerLink]="['/TC']"  >TCs</a>
+      <ul class="sidebar-nav-1">
+         <li>
+            <a [routerLink]="['/TC/new']"  >New</a>
+         </li>
+      </ul>
+   </li>
+   <li *ngIf="display('/Goods')" routerLinkActive="active">
+      <a [routerLink]="['/Goods']"  >Goods</a>
+   </li>
+</ul>
+

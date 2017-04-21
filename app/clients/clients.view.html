@@ -1,0 +1,35 @@
+
+<div class="" >
+   <div class="page-header row">
+      <h1 class="col-xs-12 col-lg-6">Clients
+         <small class="toolbar pull-right">
+            <button class="btn btn-primary btn-lg toolbar-item" (click)="newClient()">New</button>
+         </small>
+      </h1>
+   </div>
+   <div class="row">
+      <div class="col-xs-12 col-lg-6">
+         <table class="table">
+            <thead>
+            <tr>
+               <th>#</th>
+               <th>Name</th>
+               <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let client of clients">
+               <td>{{client.id}}</td>
+               <td (click)="onSelect(client)" >{{client.name}}</td>
+               <td><button class="btn btn-danger btn-xs" (click)="delClient(client.id)">X</button></td>
+            </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+<div *ngIf="selectedClient" class="fade full-screen z1" (click)="unSelect()"></div>
+<div *ngIf="selectedClient" class="left-ident full-screen z1 page container-fluid">
+   <client-view [client]="selectedClient" ></client-view>
+</div>
+<messages [messages]="messages" ></messages>

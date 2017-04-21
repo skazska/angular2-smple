@@ -1,0 +1,38 @@
+<div class="page-header row">
+   <h3 class=" col-xs-12"><span *ngIf="!account.id">New</span> Account ({{account.userId}}) {{account.name}}
+      <small class="toolbar pull-right">
+         <button *ngIf="account.id" (click)="edit = !edit;" class="btn btn-primary toolbar-item">{{edit?"Cancel":"Edit"}}</button>
+      </small>
+   </h3>
+</div>
+<div [hidden]="!edit">
+   <form *ngIf="active" (ngSubmit)="onSubmit()" [formGroup]="form"  class="row">
+      <div class="form-group" class="col-xs-12 ">
+         <label for="name">User Name</label>
+         <input type="text" class="form-control" id="name" name="name" placeholder="User Name"
+                formControlName="name" >
+         <div [hidden]="form.controls.name.valid || form.controls.name.pristine" class="alert alert-danger">
+            Name is required
+         </div>
+      </div>
+      <div class="form-group" class="col-xs-12 ">
+         <label for="userId">User ID</label>
+         <input type="text" class="form-control" id="userId" name="userId" placeholder="User Id"
+                formControlName="userId" >
+         <div [hidden]="form.controls.userId.valid || form.controls.userId.pristine" class="alert alert-danger">
+            userId is required
+         </div>
+      </div>
+      <div class="form-group" class="col-xs-12">
+         <button class="btn btn-default" [disabled]="!form.valid">Submit</button>
+      </div>
+   </form>
+
+</div>
+<div [hidden]="edit"  class="row">
+   <div class="col-xs-12 ">
+      Some account representation
+   </div>
+</div>
+
+<messages [messages]="messages" ></messages>

@@ -1,0 +1,34 @@
+
+   <div class="row">
+      <h2 class="col-xs-12 "> Beacons
+         <small class="toolbar pull-right">
+            <button *ngIf="!selectedBeacon" class="btn btn-primary toolbar-item" (click)="newBeacon()">New</button>
+            <button *ngIf="selectedBeacon" class="btn btn-primary toolbar-item" (click)="unSelect()">Cancel</button>
+         </small>
+      </h2>
+
+   </div>
+   <div *ngIf="selectedBeacon" >
+      <beacon-view [beacon]="selectedBeacon" [shop]="shop" (beaconChange) = "onBeaconChange(event)"></beacon-view>
+   </div>
+   <div class="row">
+      <div class="col-xs-12 ">
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>tag</th>
+                  <th>use</th>
+                  <th></th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let beacon of beacons" >
+                  <td (click)="onSelect(beacon)">{{beacon.beaconId1}}</td>
+                  <td (click)="onSelect(beacon)">{{beacon.use}}</td>
+                  <td><button class="btn btn-danger btn-xs" (click)="delBeacon(beacon.id)">X</button></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+   <messages [messages]="messages" ></messages>

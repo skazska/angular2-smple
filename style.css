@@ -1,0 +1,67 @@
+h1 {
+   color: #369;
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 250%;
+}
+body {
+
+}
+
+.full-screen {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.page {
+  background: white;
+}
+
+.page-header {
+  padding-bottom: 5px;
+  margin: 0px 0 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.left-ident{
+  left: 50px;
+}
+
+.top-ident{
+  top: 81px;
+}
+
+.z1 {
+  z-index: 1;
+}
+
+.z2 {
+  z-index: 2;
+}
+
+.z3 {
+  z-index: 3;
+}
+
+.fade {
+  background: #000;
+  opacity: 0.2;
+}
+
+.fade.z1 {
+  background: #000;
+  opacity: 0.8;
+}
+
+@media(min-width:1200px) {
+  .fade.z1 {
+    display: none;
+  }
+
+  .left-ident{
+    left: 50%;
+  }
+
+}

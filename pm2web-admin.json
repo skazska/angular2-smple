@@ -1,0 +1,20 @@
+{
+  "apps" : [{
+    "name"       : "web-admin-app",
+    "script"     : "server.js",
+    "instances"  : 1,
+    "exec_mode"  : "fork",
+    "env": {
+      "NODE_ENV": "test"
+    },
+    "env_production" : {
+      "NODE_ENV": "production"
+    },
+    "env_staging" : {
+      "NODE_ENV" : "staging"
+    },
+    "error_file" : "examples/child-err.log",
+    "out_file"   : "examples/child-out.log",
+    "pid_file"   : "examples/child.pid"
+  }]
+}

@@ -1,0 +1,41 @@
+
+<div class="" >
+   <div class="row">
+      <h2 class="col-xs-12 "> Accounts
+         <small class="toolbar pull-right">
+            <button *ngIf="!selectedAccount" class="btn btn-primary toolbar-item" (click)="newAccount()">New</button>
+            <button *ngIf="selectedAccount" class="btn btn-primary toolbar-item" (click)="unSelect()">Cancel</button>
+         </small>
+      </h2>
+   </div>
+
+   <div *ngIf="selectedAccount" class="">
+      <account-view [account]="selectedAccount" [client]="client" (accountChange) = "onAccountChange(event)"></account-view>
+   </div>
+
+   <div class="row">
+      <div class="col-xs-12 ">
+         <table class="table">
+            <thead>
+               <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>User Id</th>
+                  <th>Roles</th>
+                  <th></th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr *ngFor="let account of accounts" >
+                  <td>{{account.id}}</td>
+                  <td (click)="onSelect(account)">{{account.name}}</td>
+                  <td (click)="onSelect(account)">{{account.userId}}</td>
+                  <td>{{account.roles}}</td>
+                  <td><button class="btn btn-danger btn-xs" (click)="delAccount(account.id)">X</button></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+   <messages [messages]="messages" ></messages>
+</div>

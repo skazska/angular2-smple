@@ -1,0 +1,37 @@
+
+<div class="" >
+   <div class="page-header row">
+      <h1 class="col-xs-12 col-lg-6">Trade Centers
+         <small class="toolbar pull-right">
+            <button class="btn btn-primary btn-lg toolbar-item" (click)="newTC()">New</button>
+         </small>
+      </h1>
+   </div>
+   <div class="row">
+      <div class="col-xs-12 col-lg-6">
+         <table class="table">
+            <thead>
+            <tr>
+               <th>#</th>
+               <th>Name</th>
+               <th>Address</th>
+               <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tc of tcs" >
+               <td >{{tc.id}}</td>
+               <td (click)="onSelect(tc)">{{tc.name}}</td>
+               <td (click)="onSelect(tc)">{{tc.address}}</td>
+               <td><button class="btn btn-danger btn-xs" (click)="delTC(tc.id)">X</button></td>
+            </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+</div>
+<div *ngIf="selectedTC" class="fade full-screen z1" (click)="unSelect()"></div>
+<div *ngIf="selectedTC" class="left-ident full-screen z1 page container-fluid">
+   <tc-view [tcStream]="observableTC"   (tcChange) = "onTCChange(event)"></tc-view>
+</div>
+<messages [messages]="messages" ></messages>
